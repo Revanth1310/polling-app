@@ -30,6 +30,41 @@ The system uses **REST APIs**, **Prisma ORM**, and **Socket.IO** for real-time u
 * **Postman** – API testing
 
 ---
+## Diagramatic Representation
+ ┌─────────────┐           ┌─────────────┐
+ │   Client 1  │           │   Client 2  │
+ │  (Web/Mobile)│          │  (Web/Mobile)│
+ └─────┬───────┘           └─────┬───────┘
+       │ REST API requests       │
+       │ Vote/Poll fetch/create  │
+       ▼                         ▼
+   ┌─────────────────────────────┐
+   │      Node.js + Express       │
+   │ + Prisma ORM (DB layer)     │
+   └─────────┬───────────────────┘
+             │
+             │ Database queries
+             ▼
+       ┌─────────────┐
+       │ PostgreSQL  │
+       │  Tables:    │
+       │ Users       │
+       │ Polls       │
+       │ PollOptions │
+       │ Votes       │
+       └─────────────┘
+
+             ▲
+             │ WebSocket events
+             │ voteUpdate(pollId, counts)
+             │
+ ┌───────────┴────────────┐
+ │   WebSocket Server     │
+ │   (Socket.io)          │
+ └───────────┬────────────┘
+             │
+   Clients subscribed to poll receive real-time updates
+
 
 ## 📂 Project Structure
 
@@ -160,6 +195,7 @@ Run Prisma migration:
 
 ```bash
 npx prisma migrate dev --name init
+npx prisma generate
 ```
 
 Start server:
@@ -195,4 +231,5 @@ This project was developed with the assistance of **ChatGPT**, which helped in g
 ### Run test-client.js To See Hoe Vote Updates In Realtime
 ```bash
 node test-client.js
+
 ```
