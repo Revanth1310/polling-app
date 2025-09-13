@@ -230,9 +230,10 @@ node server.js
 
 This project was developed with the assistance of **ChatGPT**, which helped in generating code snippets and structuring the project.
 
-### Run test-client.js To See Hoe Vote Updates In Realtime
+### Run test-client.js To See How Vote Updates In Realtime
 ```bash
 node test-client.js
 
 ```
+
 
