@@ -31,6 +31,8 @@ The system uses **REST APIs**, **Prisma ORM**, and **Socket.IO** for real-time u
 
 ---
 ## Diagramatic Representation
+```
+
  ┌─────────────┐           ┌─────────────┐
  │   Client 1  │           │   Client 2  │
  │  (Web/Mobile)│          │  (Web/Mobile)│
@@ -64,7 +66,7 @@ The system uses **REST APIs**, **Prisma ORM**, and **Socket.IO** for real-time u
  └───────────┬────────────┘
              │
    Clients subscribed to poll receive real-time updates
-
+```
 
 ## 📂 Project Structure
 
@@ -155,7 +157,7 @@ Headers: { "Authorization": "Bearer <JWT_TOKEN>" }
 POST /polls/1/vote
 Headers: { "Authorization": "Bearer <JWT_TOKEN>" }
 {
-  "option": "Python"
+  "optionId": 1
 }
 ```
 
@@ -233,3 +235,4 @@ This project was developed with the assistance of **ChatGPT**, which helped in g
 node test-client.js
 
 ```
+
