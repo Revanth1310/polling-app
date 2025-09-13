@@ -196,8 +196,8 @@ DATABASE_URL="postgresql://username:password@localhost:5432/polling_app"
 Run Prisma migration:
 
 ```bash
-npx prisma migrate dev --name init
 npx prisma generate
+npx prisma migrate dev --name init
 ```
 
 Start server:
@@ -235,6 +235,7 @@ This project was developed with the assistance of **ChatGPT**, which helped in g
 node test-client.js
 
 ```
+
 
 
 
